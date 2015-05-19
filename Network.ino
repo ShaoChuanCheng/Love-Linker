@@ -44,11 +44,14 @@ int retriveRemoteData(char* compName) {
 
 
 int readFile(char* fileName) {
-    FILE *pFile;
+    FILE *pFile = NULL;
     int lSize = 0;
   
   // file open HB_FILE
     pFile = fopen(fileName, "r");
+    if (pFile == NULL ) {
+      return -1;
+    }
     fseek(pFile, 0 , SEEK_END);
     lSize = ftell(pFile);
     rewind(pFile);

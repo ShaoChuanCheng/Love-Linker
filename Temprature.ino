@@ -21,7 +21,7 @@ const float reference_vol = 0.500;
 unsigned char clear_num = 0; //when use lcd to display
 float R = 0;
 float voltage = 0;
-const boolean Debug = false;
+const boolean Debug = true;
 
 long res[100] = {
   318300, 302903, 288329, 274533, 261471, 249100, 237381, 226276, 215750, 205768,

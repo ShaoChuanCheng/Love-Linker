@@ -23,9 +23,10 @@ const int GREEN = 1;
 const int YELLOW = 2;
 const int RED = 3;
 typedef enum EMOTION{NOUN,NORMAL, LOWEMO,HIGHEMO};
+typedef enum STR{NOUNLEVEL,LEVEL1, LEVEL2, LEVEL3};
 
 // Regards Serial OutPut  -- Set This Up to your needs
-static boolean serialVisual = true;   // Set to 'false' by Default.  Re-set to 'true' to see Arduino Serial Monitor ASCII Visual Pulse
+static boolean serialVisual = false;   // Set to 'false' by Default.  Re-set to 'true' to see Arduino Serial Monitor ASCII Visual Pulse
 
 void setup() {
   Serial.begin(115200);             // we agree to talk fast!
@@ -43,7 +44,10 @@ void loop() {
   updateVibration();
   handleBtnEvent();
   TaskDispatcher();
-  serialOutput() ;
+  //serialOutput() ;
+  serialOutputWhenBeatHappens();
+  Serial.print("AMP:");
+  Serial.println(amp);
   delay(DELAY_TIME);  //  take a break
 }
 
